@@ -1,0 +1,340 @@
+WindowManager:
+    LogInScreen:
+    SignUpScreen:
+    ForgotPasswordScreen:
+
+<LogInScreen>:
+    id: screen1
+    name: 'LogInScreen'
+
+    MDCard:
+        size_hint: None, None
+        size: 360, 640
+        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+        elevation: 5
+        padding: 25
+        spacing: 25
+        orientation: 'vertical'
+        radius: [17, 17, 17, 17]
+        
+        MDLabel:
+            id: welcome_label
+            text: "Welcome"
+            font_size: 30
+            halign: 'center'
+            size_hint_y: None
+            height: self.texture_size[1]
+            padding_y: 15
+
+        Image:
+            source: r'assets\user.png'
+            size_hint: None, None
+            size: 100, 100
+            pos_hint: {"center_x": 0.5}
+
+        Widget:
+            size_hint_y: None
+            height: 0
+
+        BoxLayout:
+            orientation: 'vertical'
+            spacing: 20
+
+            BoxLayout:
+                orientation: 'horizontal'
+                spacing: 10 
+                
+                MDLabel:
+                    id: username_label
+                    text: "Username"
+                    font_size: 18
+                    halign: 'left'
+                    size_hint_y: None
+                    height: self.texture_size[1]
+                    padding_y: 15
+
+                MDTextField:
+                    id: username_input
+                    hint_text: "Username"
+                    icon_left: "account"
+                    mode: "round"
+                    max_text_length: 30
+                    width: 200
+                    height: 50
+                    size_hint_x: None
+                    size_hint_y: None
+                    padding_y: 10
+                    write_tab: False
+
+            BoxLayout:
+                orientation: 'horizontal'
+
+                MDLabel:
+                    id: password_label
+                    text: "Password"
+                    font_size: 18
+                    halign: 'left'
+                    size_hint_y: None
+                    height: self.texture_size[1]
+                    padding_y: 15
+                    size_hint_x: None
+                    width: 110
+                    
+                MDTextField:
+                    id: text_field
+                    hint_text: "Password"
+                    icon_left: "key"
+                    mode: "round"
+                    max_text_length: 30
+                    width: 160
+                    height: 50
+                    size_hint_x: None
+                    size_hint_y: None
+                    password: True
+                    on_text: self.text = self.text.replace(" ", "")
+                    write_tab: False
+                
+                MDIconButton:
+                    icon: "eye-off"
+                    theme_text_color: "Hint"
+
+                    on_release:
+                        self.icon = "eye" if self.icon == "eye-off" else "eye-off"
+                        text_field.password = False if text_field.password is True else True
+        Widget:
+            size_hint_y: None
+            height: 0
+
+        MDFlatButton:
+            id: forgotPassword_button
+            text: "Forgot Password"
+            size_hint_y: None
+            padding_y: 15
+            on_press: app.root.current = 'ForgotPasswordScreen'
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+
+        MDRoundFlatButton:
+            id: signUp_button
+            text: "Sign Up"
+            size_hint_y: None
+            padding_y: 15
+            size_hint_x: 1
+            radius: [19, 19, 19, 19]
+            line_color: "gray"
+            on_press: app.root.current = 'SignUpScreen'
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+        
+        MDRoundFlatIconButton:
+            id: submit_button
+            text: "Submit"
+            size_hint_y: None
+            padding_y: 15
+            size_hint_x: 1
+            radius: [19, 19, 19, 19]
+            md_bg_color: "gray"
+            theme_text_color: "Custom"
+            text_color: 1, 1, 1, 1
+            on_release: root.check_input()
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+
+<SignUpScreen>
+    id: screen2
+    name: 'SignUpScreen'
+
+    MDCard:
+        size_hint: None, None
+        size: 360, 640
+        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+        elevation: 5
+        padding: 25
+        spacing: 25
+        orientation: 'vertical'
+        radius: [17, 17, 17, 17]
+
+        BoxLayout:
+            orientation: 'horizontal'
+            spacing: 10
+
+            MDRaisedButton:
+                id: back_button
+                text: "Back"
+                size_hint_y: None
+                padding_y: 15
+                md_bg_color: "red"
+                text_color: "black"
+                on_press: app.root.current = 'LogInScreen'
+            
+        MDLabel:
+            id: welcome_label
+            text: "Sign Up"
+            font_size: 30
+            halign: 'center'
+            size_hint_y: None
+            height: self.texture_size[1]
+            padding_y: 15
+        
+        Widget:
+            size_hint_y: None
+            height: 150
+
+        BoxLayout:
+            orientation: 'vertical'
+            spacing: 90
+
+            BoxLayout:
+                orientation: 'horizontal'
+                spacing: 10 
+                
+                MDLabel:
+                    id: firstName_label
+                    text: "First Name"
+                    font_size: 18
+                    halign: 'left'
+                    size_hint_y: None
+                    height: self.texture_size[1]
+                    padding_y: 15
+
+                MDTextField:
+                    id: firstName_input
+                    hint_text: "First Name"
+                    icon_left: "account"
+                    mode: "round"
+                    max_text_length: 100
+                    width: 200
+                    height: 50 
+                    size_hint_x: None
+                    size_hint_y: None
+                    padding_y: 15
+                    write_tab: False
+            
+            BoxLayout:
+                orientation: 'horizontal'
+                spacing: 10 
+                
+                MDLabel:
+                    id: lastName_label
+                    text: "Last Name"
+                    font_size: 18
+                    halign: 'left'
+                    size_hint_y: None
+                    height: self.texture_size[1]
+                    padding_y: 15
+
+                MDTextField:
+                    id: lastName_input
+                    hint_text: "Last Name"
+                    icon_left: "account"
+                    mode: "round"
+                    max_text_length: 100
+                    width: 200
+                    height: 50 
+                    size_hint_x: None
+                    size_hint_y: None
+                    padding_y: 15
+                    write_tab: False
+
+            BoxLayout:
+                orientation: 'horizontal'
+                spacing: 10 
+                
+                MDLabel:
+                    id: email_label
+                    text: "Email"
+                    font_size: 18
+                    halign: 'left'
+                    size_hint_y: None
+                    height: self.texture_size[1]
+                    padding_y: 15
+
+                MDTextField:
+                    id: email_input
+                    hint_text: "Email"
+                    icon_right: "email"
+                    mode: "round"
+                    max_text_length: 320
+                    width: 200
+                    height: 50 
+                    size_hint_x: None
+                    size_hint_y: None
+                    padding_y: 15
+                    write_tab: False
+
+        BoxLayout:
+            orientation: 'horizontal'
+
+            MDLabel:
+                id: password_label
+                text: "Password"
+                font_size: 18
+                halign: 'left'
+                size_hint_y: None
+                height: self.texture_size[1]
+                padding_y: 15
+                size_hint_x: None
+                width: 110
+                    
+            MDTextField:
+                id: text_field
+                hint_text: "Password"
+                icon_left: "key"
+                mode: "round"
+                max_text_length: 30
+                width: 160
+                height: 50
+                size_hint_x: None
+                size_hint_y: None
+                password: True
+                on_text: self.text = self.text.replace(" ", "")
+                write_tab: False
+                
+            MDIconButton:
+                icon: "eye-off"
+                theme_text_color: "Hint"
+
+                on_release:
+                    self.icon = "eye" if self.icon == "eye-off" else "eye-off"
+                    text_field.password = False if text_field.password is True else True
+
+        Widget:
+            size_hint_y: None
+            height: 10
+
+        MDRoundFlatIconButton:
+            id: submit_button
+            text: "Submit"
+            size_hint_y: None
+            padding_y: 15
+            size_hint_x: 1
+            radius: [19, 19, 19, 19]
+            md_bg_color: "gray"
+            theme_text_color: "Custom"
+            text_color: 1, 1, 1, 1
+            on_release: root.check_input()
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+
+<ForgotPasswordScreen>
+    id: screen3
+    name: 'ForgotPasswordScreen'
+
+    MDCard:
+        size_hint: None, None
+        size: 360, 640
+        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+        elevation: 5
+        padding: 25
+        spacing: 25
+        orientation: 'vertical'
+        radius: [17, 17, 17, 17]
+
+        BoxLayout:
+            orientation: 'horizontal'
+            spacing: 10
+
+            MDRaisedButton:
+                id: back_button
+                text: "Back"
+                size_hint_y: None
+                padding_y: 15
+                md_bg_color: "red"
+                text_color: "black"
+                on_press: app.root.current = 'LogInScreen'
