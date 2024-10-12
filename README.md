@@ -1,8 +1,12 @@
 # OnlineCookBook
 
-[![Static Badge](https://img.shields.io/badge/MongoClient-green)](https://www.mongodb.com/community/forums/t/using-node-driver-v5-when-is-mongoclient-connect-required/212008)
-[![Static Badge](https://img.shields.io/badge/MDApp-magenta)](https://pypi.org/project/kivymd/)
-[![Static Badge](https://img.shields.io/badge/bcrypt-blue)](https://pypi.org/project/bcrypt/)
+[![Static Badge](https://img.shields.io/badge/pymongo-navy)](https://pypi.org/project/pymongo/)
+[![Static Badge](https://img.shields.io/badge/kivy-green)](https://pypi.org/project/kivy/)
+[![Static Badge](https://img.shields.io/badge/kivymd-purple)](https://pypi.org/project/kivymd/)
+[![Static Badge](https://img.shields.io/badge/bcrypt,-yellow)](https://pypi.org/project/bcrypt,/)
+[![Static Badge](https://img.shields.io/badge/string-olive)](https://pypi.org/project/string/)
+[![Static Badge](https://img.shields.io/badge/re-silver)](https://pypi.org/project/re/)
+
 
 The Python script is the backend of a Kivy-based application that manages user data using a MongoDB database. It includes login, password management, and registration functions, using bcrypt for password hashing. The application uses Kivy's ScreenManager for navigation and uses toast messages for user feedback. The main.kv file contains the Kivy Language markup for the user interface.
 
